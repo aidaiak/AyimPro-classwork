@@ -1,10 +1,13 @@
 package com.aid.pro
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+
+
 
 class SimpleAdapter(
     private val click: (pos: Int) -> Unit
