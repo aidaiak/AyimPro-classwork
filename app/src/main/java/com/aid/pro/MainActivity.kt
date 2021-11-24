@@ -19,10 +19,9 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
 
         val adapter = SimpleAdapter {
-          val intent = Intent(this, MainActivity1::class.java).apply {
-              putExtra("text","ITEM - $it")
-          }
-            startActivity(intent)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frg1, Fragment1())
+                .commit()
         }
 
         recycler.layoutManager = layoutManager
