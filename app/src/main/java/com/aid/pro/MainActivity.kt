@@ -15,13 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val recycler = findViewById<RecyclerView>(R.id.recycler)
         val layoutManager = LinearLayoutManager(this)
 
         val adapter = SimpleAdapter {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.frg1, Fragment1())
-                .commit()
         }
 
         recycler.layoutManager = layoutManager
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             list.add("ITEM - $i")
         }
         adapter.setData(list)
-
     }
+
 
 }
