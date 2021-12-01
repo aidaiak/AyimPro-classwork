@@ -1,36 +1,28 @@
 package com.aid.pro
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.view.View
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnFragmentClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, Fragment1())
+            .commit()
+    }
 
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
-        val layoutManager = LinearLayoutManager(this)
+    override fun onClick(adapterPosition: String) {
+        val fragment2 = Fragment2()
+        val bundle = Bundle()
+        bundle.putString("key", adapterPosition)
+        fragment2.arguments = bundle
 
-        val adapter = SimpleAdapter {
-        }
-
-        recycler.layoutManager = layoutManager
-        recycler.adapter = adapter
-        recycler.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
-
-        val list = mutableListOf<String>()
-        for (i in 0..20) {
-            list.add("ITEM - $i")
-        }
-        adapter.setData(list)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment2)
+            .addToBackStack(null)
+            .commit()
     }
 
 
