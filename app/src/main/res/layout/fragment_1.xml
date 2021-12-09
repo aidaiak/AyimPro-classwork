@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/llog_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter login"
+        app:layout_constraintTop_toBottomOf="@id/txt"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/lpwd_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter password"
+        app:layout_constraintTop_toBottomOf="@id/llog_edit"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/log_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/lpwd_edit"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/lreg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/log_btn"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
