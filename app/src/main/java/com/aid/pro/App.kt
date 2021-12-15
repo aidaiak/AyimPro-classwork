@@ -3,11 +3,20 @@ package com.aid.pro
 import android.app.Application
 
 class App : Application() {
-    val prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
-    val editor = prefs.edit()
+
+    lateinit var preferences: Preferences
+
+    override fun onCreate() {
+        super.onCreate()
+        _instance = this
+        preferences = PreferencesImpl(this)
+    }
 
     companion object {
-        const val KEY_LOGIN = "key1"
-        const val KEY_PWD = "key2"
+        private var _instance: App? = null
+        val instance get() = _instance!!
     }
 }
+
+val Any.Injector: App
+get() = App.instance

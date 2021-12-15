@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import android.content.SharedPreferences
 
 //здесь будет экран Логина
-class Fragment1 : Fragment(R.layout.fragment_1), App(prefs) {
+class Fragment1 : Fragment(R.layout.fragment_1) {
+
+    private val preferences get() = Injector.preferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -19,14 +21,11 @@ class Fragment1 : Fragment(R.layout.fragment_1), App(prefs) {
         val btnLog = view.findViewById<AppCompatButton>(R.id.log_btn)
         val btnReg = view.findViewById<AppCompatButton>(R.id.lreg_btn)
 
-        val editor = prefs.edit()
-        editor.putString(KEY_LOGIN, login.text.toString())
 
         btnLog.setOnClickListener {
             if(login.text.toString() ==  &&) {
 
             }
-            val editor = prefs.edit()
             editor.putString(KEY_LOGIN, login.text.toString())
             editor.putString(KEY_PWD, pwd.text.toString())
             editor.apply()
@@ -41,5 +40,9 @@ class Fragment1 : Fragment(R.layout.fragment_1), App(prefs) {
         }
     }
 
+    companion object {
+        private const val  KEY_LOGIN = "KEY_LOGIN"
+        private const val  KEY_PWD = "KEY_PWD"
+    }
 
 }
