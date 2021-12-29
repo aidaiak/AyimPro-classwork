@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity(), Preferences {
 
         if (prefs.getString("login", "def").isNullOrEmpty()) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, SignupFragment())
+                .add(R.id.fragment_container, LoginFragment())
                 .commit()
         } else {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, LoginFragment())
+                .add(R.id.fragment_container, SignupFragment())
                 .commit()
         }
     }
